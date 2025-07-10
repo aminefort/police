@@ -32,27 +32,28 @@ body {
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 280px;
-  background: rgba(20, 25, 35, 0.95);
+  width: 300px;
+  background: rgba(0, 15, 30, 0.85);
   color: #ffffff;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 0;
   z-index: 10;
   display: none;
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 150, 255, 0.3);
   pointer-events: auto;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 150, 255, 0.2);
 }
 
 #header {
-  background: linear-gradient(135deg, #1a4b8c 0%, #2563eb 100%);
-  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(0, 100, 200, 0.8) 0%, rgba(0, 150, 255, 0.6) 100%);
+  padding: 10px 14px;
   cursor: move;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 150, 255, 0.3);
   position: relative;
 }
 
@@ -63,15 +64,16 @@ body {
 }
 
 .header-icon {
-  font-size: 16px;
-  color: #60a5fa;
+  font-size: 14px;
+  color: #00aaff;
 }
 
 #op-title {
   flex: 1;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .status-indicator {
@@ -81,7 +83,7 @@ body {
 
 .status-indicator i {
   font-size: 6px;
-  color: #10b981;
+  color: #00ff88;
   animation: pulse 2s infinite;
 }
 
@@ -96,37 +98,39 @@ body {
 
 /* Police List Header */
 .police-list-header {
-  background: rgba(30, 35, 45, 0.8);
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 30, 60, 0.7);
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(0, 150, 255, 0.2);
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .police-list-header:hover {
-  background: rgba(40, 45, 55, 0.8);
+  background: rgba(0, 50, 100, 0.8);
+  border-bottom-color: rgba(0, 150, 255, 0.4);
 }
 
 .police-list-title {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  color: #e2e8f0;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .police-list-title i {
-  font-size: 14px;
-  color: #60a5fa;
+  font-size: 12px;
+  color: #00aaff;
 }
 
 .dropdown-arrow {
-  font-size: 12px;
-  color: #94a3b8;
+  font-size: 10px;
+  color: #00aaff;
   transition: transform 0.3s ease;
 }
 
@@ -136,9 +140,10 @@ body {
 
 /* Member List Container */
 .member-list-container {
-  max-height: 240px;
+  max-height: 200px;
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(0, 10, 25, 0.6);
 }
 
 .member-list-container.collapsed {
@@ -146,37 +151,37 @@ body {
 }
 
 #member-list {
-  max-height: 240px;
+  max-height: 200px;
   overflow-y: auto;
-  padding: 8px 0;
+  padding: 0;
   margin: 0;
 }
 
 #member-list::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
 
 #member-list::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 #member-list::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.6);
+  background: rgba(0, 150, 255, 0.6);
   border-radius: 2px;
 }
 
 .member {
-  padding: 8px 16px;
-  font-size: 12px;
+  padding: 8px 14px;
+  font-size: 11px;
   margin: 0;
   background: transparent;
   border: none;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 150, 255, 0.1);
 }
 
 .member:last-child {
@@ -184,24 +189,32 @@ body {
 }
 
 .member:hover {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(0, 100, 200, 0.2);
+  border-bottom-color: rgba(0, 150, 255, 0.3);
 }
 
 .member-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, rgba(0, 150, 255, 0.8), rgba(0, 100, 200, 0.9));
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 10px;
+  font-size: 9px;
   flex-shrink: 0;
+  border: 1px solid rgba(0, 150, 255, 0.3);
+}
+
+.member.over-limit {
+  background: rgba(255, 50, 50, 0.1);
+  border-bottom-color: rgba(255, 50, 50, 0.3);
 }
 
 .member.over-limit .member-icon {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
+  background: linear-gradient(135deg, rgba(255, 50, 50, 0.8), rgba(200, 30, 30, 0.9));
+  border-color: rgba(255, 50, 50, 0.4);
 }
 
 .member-info {
@@ -211,17 +224,18 @@ body {
 
 .member-name {
   font-weight: 500;
-  font-size: 13px;
-  margin-bottom: 2px;
+  font-size: 12px;
+  margin-bottom: 1px;
   color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .member-rank {
-  font-size: 10px;
-  color: #94a3b8;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 400;
@@ -231,71 +245,75 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 10px;
-  color: #10b981;
+  font-size: 9px;
+  color: #00ff88;
   margin-top: 1px;
 }
 
 .member-status i {
-  font-size: 6px;
+  font-size: 5px;
 }
 
 /* Operation Stats */
 .operation-stats {
-  padding: 12px 16px;
-  background: rgba(15, 20, 30, 0.8);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 14px;
+  background: rgba(0, 20, 40, 0.8);
+  border-top: 1px solid rgba(0, 150, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 150, 255, 0.2);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   text-align: center;
 }
 
 .stat-item i {
-  font-size: 12px;
-  color: #60a5fa;
-  margin-bottom: 2px;
+  font-size: 11px;
+  color: #00aaff;
+  margin-bottom: 1px;
 }
 
 .stat-item span {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  color: #e2e8f0;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .status-text {
-  color: #10b981 !important;
+  color: #00ff88 !important;
   font-weight: 600 !important;
 }
 
 #leave-btn {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.8) 0%, rgba(185, 28, 28, 0.9) 100%);
   border: none;
   color: white;
-  padding: 12px 16px;
+  padding: 10px 14px;
   width: 100%;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 6px 6px;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   font-family: inherit;
+  border-top: 1px solid rgba(220, 38, 38, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #leave-btn:hover {
-  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  background: linear-gradient(135deg, rgba(185, 28, 28, 0.9) 0%, rgba(153, 27, 27, 1) 100%);
+  border-top-color: rgba(220, 38, 38, 0.5);
 }
 
 #leave-btn:disabled {
@@ -304,32 +322,33 @@ body {
 }
 
 #leave-btn i {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 /* Empty state */
 .empty-state {
   text-align: center;
-  padding: 40px 20px;
-  color: rgba(148, 163, 184, 0.6);
+  padding: 30px 20px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .empty-state-icon {
-  font-size: 32px;
-  color: rgba(59, 130, 246, 0.3);
-  margin-bottom: 12px;
+  font-size: 24px;
+  color: rgba(0, 150, 255, 0.3);
+  margin-bottom: 8px;
   display: block;
 }
 
 .empty-state-text {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .empty-state-subtext {
-  font-size: 11px;
-  color: rgba(148, 163, 184, 0.4);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /* Responsive adjustments */
@@ -338,7 +357,7 @@ body {
     width: calc(100vw - 40px);
     left: 20px;
     transform: none;
-    max-width: 280px;
+    max-width: 300px;
   }
   
   .operation-stats {
