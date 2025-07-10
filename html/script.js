@@ -9,6 +9,8 @@ const opTitle = document.getElementById("op-title");
 const overlay = document.getElementById("overlay");
 const memberCountEl = document.getElementById("member-count");
 const currentTimeEl = document.getElementById("current-time");
+const policeListHeader = document.getElementById("police-list-header");
+const memberListContainer = document.getElementById("member-list-container");
 
 // Update time every second
 function updateTime() {
@@ -27,6 +29,24 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
+// Police list toggle functionality
+let isPoliceListCollapsed = false;
+
+policeListHeader.addEventListener("click", () => {
+    isPoliceListCollapsed = !isPoliceListCollapsed;
+    
+    if (isPoliceListCollapsed) {
+        memberListContainer.classList.add("collapsed");
+        policeListHeader.classList.add("collapsed");
+    } else {
+        memberListContainer.classList.remove("collapsed");
+        policeListHeader.classList.remove("collapsed");
+    }
+    
+    // Save state to localStorage
+    localStorage.setItem("police-list-collapsed", isPoliceListCollapsed);
+});
+
 // Restore UI position if saved
 window.addEventListener("load", () => {
     const savedLeft = localStorage.getItem("ui-left");
@@ -35,6 +55,14 @@ window.addEventListener("load", () => {
         ui.style.left = savedLeft;
         ui.style.top = savedTop;
         ui.style.transform = "none";
+    }
+    
+    // Restore police list state
+    const savedCollapsed = localStorage.getItem("police-list-collapsed");
+    if (savedCollapsed === "true") {
+        isPoliceListCollapsed = true;
+        memberListContainer.classList.add("collapsed");
+        policeListHeader.classList.add("collapsed");
     }
 });
 
