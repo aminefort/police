@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Police Operation UI</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div id="overlay"></div>
+
+  <div id="operation-ui">
+    <div id="header" class="drag-handle">
+      <div class="header-content">
+        <i class="fas fa-shield-alt header-icon"></i>
+        <span id="op-title">Operation1 (2/7)</span>
+        <div class="status-indicator">
+          <i class="fas fa-circle"></i>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ui-content">
+      <div id="member-list"></div>
+      <div id="operation-stats" class="operation-stats">
+        <div class="stat-item">
+          <i class="fas fa-users"></i>
+          <span id="member-count">0/0</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-clock"></i>
+          <span id="current-time">--:--</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-signal"></i>
+          <span class="status-text">Active</span>
+        </div>
+      </div>
+    </div>
+
+    <button id="leave-btn">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Leave Operation</span>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Enhanced overlay click handler
+    document.getElementById("overlay").addEventListener("click", (e) => {
+      if (e.target === document.getElementById("overlay")) {
+        fetch(`https://${GetParentResourceName()}/unfocus`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({})
+        });
+      }
+    });
+
+    // Prevent context menu on right click
+    document.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>
