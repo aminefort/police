@@ -7,25 +7,6 @@ const memberList = document.getElementById("member-list");
 const leaveBtn = document.getElementById("leave-btn");
 const opTitle = document.getElementById("op-title");
 const overlay = document.getElementById("overlay");
-const memberCountEl = document.getElementById("member-count");
-const currentTimeEl = document.getElementById("current-time");
-
-// Update time every second
-function updateTime() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString([], {
-        hour: '2-digit', 
-        minute: '2-digit',
-        hour12: false
-    });
-    if (currentTimeEl) {
-        currentTimeEl.textContent = timeString;
-    }
-}
-
-// Start time updates
-setInterval(updateTime, 1000);
-updateTime();
 
 // Restore UI position if saved
 window.addEventListener("load", () => {
@@ -45,7 +26,6 @@ window.addEventListener("message", function (event) {
         showUI();
         updateTitle(data.operation);
         updateMembers(data.members, data.channel);
-        updateStats(data.members);
     }
 
     if (data.action === "hide") {
@@ -54,7 +34,6 @@ window.addEventListener("message", function (event) {
 
     if (data.action === "update") {
         updateMembers(data.members, data.channel);
-        updateStats(data.members);
     }
 });
 
@@ -144,28 +123,6 @@ function updateMembers(members, channel) {
         
         memberList.appendChild(div);
     });
-}
-
-function updateStats(members) {
-    // Extract max from operation title
-    let max = 99;
-    const match = /\((\d+)\/(\d+)\)/.exec(opTitle.textContent);
-    if (match) max = parseInt(match[2]);
-
-    const activeCount = members.length;
-    
-    if (memberCountEl) {
-        memberCountEl.textContent = `${activeCount}/${max}`;
-        
-        // Update color based on capacity
-        if (activeCount > max) {
-            memberCountEl.style.color = '#ef4444';
-        } else if (activeCount > max * 0.8) {
-            memberCountEl.style.color = '#f59e0b';
-        } else {
-            memberCountEl.style.color = '#10b981';
-        }
-    }
 }
 
 // Enhanced leave operation with better UX
