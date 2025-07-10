@@ -278,6 +278,11 @@ body {
   border-color: rgba(255, 80, 80, 0.4);
 }
 
+.member.over-limit .member-name {
+  color: #ff5050 !important;
+  text-shadow: 0 1px 3px rgba(255, 80, 80, 0.3);
+}
+
 .member-info {
   flex: 1;
   min-width: 0;
