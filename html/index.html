@@ -16,20 +16,22 @@
       <div class="header-content">
         <i class="fas fa-shield-alt header-icon"></i>
         <span id="op-title">Operation1 (2/7)</span>
+        <button id="dropdown-btn" class="dropdown-btn">
+          <i class="fas fa-chevron-down"></i>
+        </button>
         <div class="status-indicator">
           <i class="fas fa-circle"></i>
         </div>
       </div>
     </div>
     
-    <div class="ui-content">
+    <div class="ui-content" id="ui-content">
       <div id="member-list"></div>
+      <button id="leave-btn" class="leave-btn-inside">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Leave Operation</span>
+      </button>
     </div>
-
-    <button id="leave-btn">
-      <i class="fas fa-sign-out-alt"></i>
-      <span>Leave Operation</span>
-    </button>
   </div>
 
   <script src="script.js"></script>

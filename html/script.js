@@ -7,6 +7,30 @@ const memberList = document.getElementById("member-list");
 const leaveBtn = document.getElementById("leave-btn");
 const opTitle = document.getElementById("op-title");
 const overlay = document.getElementById("overlay");
+const dropdownBtn = document.getElementById("dropdown-btn");
+const uiContent = document.getElementById("ui-content");
+
+// Dropdown functionality
+let isDropdownOpen = true; // Start open by default
+
+dropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleDropdown();
+});
+
+function toggleDropdown() {
+    isDropdownOpen = !isDropdownOpen;
+    
+    if (isDropdownOpen) {
+        uiContent.style.display = "block";
+        dropdownBtn.querySelector('i').style.transform = "rotate(0deg)";
+        dropdownBtn.classList.remove("closed");
+    } else {
+        uiContent.style.display = "none";
+        dropdownBtn.querySelector('i').style.transform = "rotate(-90deg)";
+        dropdownBtn.classList.add("closed");
+    }
+}
 
 // Restore UI position if saved
 window.addEventListener("load", () => {
